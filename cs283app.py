@@ -1,13 +1,13 @@
 import streamlit as st
 from PIL import Image
+import cv2
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import layers, models
+from sklearn.neighbors import NearestNeighbors
 
 
 def autoencoder(image):
-  import cv2
-  import numpy as np
-  import tensorflow as tf
-  from tensorflow.keras import layers, models
-
 
   # read in image with opencv
   low_res_img = np.array(image)
@@ -137,9 +137,7 @@ def autoencoder(image):
 
 
 def example(image):
-  import cv2
-  import numpy as np
-  from sklearn.neighbors import NearestNeighbors
+
   def generate_patches(img, window_size, scale):
     window = window_size * scale
     patches = []
