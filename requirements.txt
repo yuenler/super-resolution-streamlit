@@ -1,3 +1,5 @@
+opencv-python-headless
+opencv-contrib-python-headless
 opencv-python
 matplotlib
 tensorflow
