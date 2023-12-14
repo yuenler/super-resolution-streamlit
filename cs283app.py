@@ -170,14 +170,13 @@ def example(image):
   nn_model_at_half_scale.fit(downsampled_at_half_scale_patches)
 
   def get_SR_patch(distances, indices, patch):
-      return None
-      if (min(distances) > 100):
+      if (min(distances) > 50):
           return None
       return patches_at_scale[indices][0].reshape(window_size*scale, window_size*scale)
 
 
   def get_SR_patch_at_half_scale(distances, indices, patch):
-      if (min(distances) > 100):
+      if (min(distances) > 50):
           return None
       half_scale_patch = patches_at_half_scale[indices][0].reshape(window_size*scale//2, window_size*scale//2)
       return cv2.resize(half_scale_patch, (0,0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
